@@ -9,20 +9,20 @@ var Queue = require('np-queue');
 
 // 请求超时的情况
 var axiosInstance = axios.create({
-  timeout: 3000,
+  timeout: 7000,
 });
 
 // 缓存过期时间
-const contentExpire = 7 * 24 * 3600;
+const contentExpire = 3 * 24 * 3600;
 
 // 限制基本信息的并发
 const infoQueue = new Queue({
-  concurrency: 2
+  concurrency: 3
 });
 
 // 限制内容请求的并发...不能再低了/(ㄒoㄒ)/~~
 const contentQueue = new Queue({
-  concurrency: 1
+  concurrency: 2
 });
 
 exports.fetchRSS = function (uid, options) {
@@ -237,7 +237,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   if (status.pics) {
     status.pics.forEach(function (item) {
       temp += "<br><br>";
-      temp += '<a href="' + item.large.url + '" target="_blank"><img src="' + (largePic ? item.large.url : item.url) + '"></a>';
+      temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="550">';
     });
   }
   return temp;
