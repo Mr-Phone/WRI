@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>新浪微博RSS订阅</title>
+  <title>RSS</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="shortcut icon" href="favicon.ico"/>
   <style>
@@ -42,31 +42,31 @@
     <div class="row">
       <div class="content">
         <div class="head">
-          <h2 class="text-center">Weibo to RSS</h2>
-          <p class="intro">优雅地使用 RSS 阅读器订阅喜欢的微博博主</p>
-          <p>食用方式：<br>1. 在输入框中粘贴你想订阅的微博地址<br>2. 点击“订阅”按钮</p>
+          <h2 class="text-center">RSS</h2>
+          <p class="intro">Never miss important stories</p>
+          <p>Step：<br>1. Search Link<br>2. Click follow</p>
           <form id="form">
             <div class="input-group">
-              <input id="text-input" type="text" class="form-control" placeholder="https://weibo.com/kaifulee">
+              <input id="text-input" type="text" class="form-control" placeholder="Search">
               <span class="input-group-btn">
-                <button class="btn btn-default">订阅</button>
+                <button class="btn btn-default">Follow</button>
               </span>
             </div>
           </form>
         </div>
-        <div class="loading" style="display: none;"><p class="text-center">加载中...</p></div>
+        <div class="loading" style="display: none;"><p class="text-center">Loading...</p></div>
         <div class="result" style="display: none;">
-          <p>RSS地址：</p>
+          <p>RSS Link：</p>
           <div class="input-group">
             <input id="foo" type="text" class="form-control" value="">
             <span class="input-group-btn">
-              <button id="copy-btn" data-clipboard-action="copy" data-clipboard-target="#foo" class="btn btn-default">复制到剪切板</button>
+              <button id="copy-btn" data-clipboard-action="copy" data-clipboard-target="#foo" class="btn btn-default">Copy</button>
             </span>
           </div>
           <ul class="reader-list">
-            <li><a id="inoreader" href="" target="_blank">订阅到Inoreader</a></li>
-            <li><a id="feedly" href="" target="_blank">订阅到Feedly</a></li>
-            <li><a id="theoldreader" href="" target="_blank">订阅到TheOldReader</a></li>
+            <li><a id="inoreader" href="" target="_blank">Subscribe to Inoreader</a></li>
+            <li><a id="feedly" href="" target="_blank">Subscribe to Feedly</a></li>
+            <li><a id="theoldreader" href="" target="_blank">Subscribe to TheOldReader</a></li>
           </ul>
         </div>
       </div>
@@ -74,7 +74,7 @@
   </div>
   <div class="footer-bottom">
     <div class="container">
-      <p class="text-mute text-center">Powered by <a href="https://github.com/zgq354/weibo-rss" target="_blank">weibo-rss</a>.</p>
+      <p class="text-mute text-center">Powered by Double.</p>
     </div>
   </div>
 </body>
@@ -124,7 +124,7 @@ function showResult(uid) {
   $(".loading").hide();
   // console.log(uid);
   if (!uid) {
-    alert("数据获取失败");
+    alert("failed");
     return;
   }
   var baseUrl = location.href.split("?")[0];
