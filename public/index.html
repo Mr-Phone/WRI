@@ -44,10 +44,10 @@
         <div class="head">
           <h2 class="text-center">RSS</h2>
           <p class="intro">Never miss important stories</p>
-          <p>Step：<br>1. Search Link<br>2. Click follow</p>
+          <p>Step：<br>1. Search RSS Link<br>2. Click follow<br>3. Subscribe</p>
           <form id="form">
             <div class="input-group">
-              <input id="text-input" type="text" class="form-control" placeholder="Search">
+              <input id="text-input" type="text" class="form-control" placeholder="Search RSS Link">
               <span class="input-group-btn">
                 <button class="btn btn-default">Follow</button>
               </span>
@@ -124,7 +124,7 @@ function showResult(uid) {
   $(".loading").hide();
   // console.log(uid);
   if (!uid) {
-    alert("failed");
+    alert("Not Found");
     return;
   }
   var baseUrl = location.href.split("?")[0];
