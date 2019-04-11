@@ -214,9 +214,9 @@ function formatStatus(status, largePic = true, emoji = false) {
     // 表情图标转换为文字
     temp = temp.replace(/<span class="url-icon"><img alt="(.*?)" src=".*?" style="width:1em; height:1em;"\/><\/span>/g, '$1');
     // 去掉外部链接的图标
-    temp = temp.replace(/<span class='url-icon'><img.*?><\/span>/g, '');
   }
-
+    temp = temp.replace(/<span class='url-icon'><img.*?><\/span>/g, '');
+  
   // 处理外部链接
   temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {
     return decodeURIComponent(p1);
@@ -240,5 +240,8 @@ function formatStatus(status, largePic = true, emoji = false) {
       temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="550">';
     });
   }
+  //表情处理
+  temp = temp.replace('src=\"/','src="https:/');
+  temp += "<br><br>";
   return temp;
 }
