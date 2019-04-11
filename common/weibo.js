@@ -241,7 +241,7 @@ function formatStatus(status, largePic = true, emoji = false) {
     });
   }
   //表情处理
-  temp = temp.replace('src=\"/','src="https:/');
+  temp = temp.replace(/src=\"\//g,'src="https:/');
   temp += "<br><br>";
   return temp;
 }
