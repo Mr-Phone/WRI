@@ -242,6 +242,8 @@ function formatStatus(status, largePic = true, emoji = false) {
   }
   //表情处理
   temp = temp.replace(/src=\"\//g,'src="https:/');
+  temp = temp.replace(/<span class="surl-text">(.*?)<\/span>/g,'$1')
+  temp = temp.replace(/<span class="url-icon">(.*?)<\/span>/g,'$1')
   temp += "<br><br>";
   return temp;
 }
