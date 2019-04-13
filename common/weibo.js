@@ -210,12 +210,16 @@ function formatStatus(status, largePic = true, emoji = false) {
   // 某些纯图片微博 status.text 的值为 null
   if (!temp) temp = "";
 
-  if (!emoji) {
-    // 表情图标转换为文字
-    temp = temp.replace(/<span class="url-icon"><img alt="(.*?)" src=".*?" style="width:1em; height:1em;"\/><\/span>/g, '$1');
-    // 去掉外部链接的图标
-  }
-    temp = temp.replace(/<span class='url-icon'><img.*?><\/span>/g, '');
+  //视频图标处理
+  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'📹');
+  //链接图标处理
+  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_web_default.png'><\/span>/g,'🔗');  
+  //购物车图标处理
+  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/01\/21\/20\/timeline_card_small_photo_default.png'><\/span>/g,'');
+  //表情转文字
+  temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,'$1');
+
+//    temp = temp.replace(/<span class='url-icon'><img.*?><\/span>/g, '');
   
   // 处理外部链接
   temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {
@@ -240,10 +244,12 @@ function formatStatus(status, largePic = true, emoji = false) {
       temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="550">';
     });
   }
-  //表情处理
+  //表情图像链接头补全
   temp = temp.replace(/src=\"\//g,'src="https:/');
+  //格式处理
   temp = temp.replace(/<span class="surl-text">(.*?)<\/span>/g,'$1')
-  temp = temp.replace(/<span class="url-icon">(.*?)<\/span>/g,'$1')
+  //格式处理
+  //temp = temp.replace(/<span class="url-icon">(.*?)<\/span>/g,'$1')
   temp += "<br><br>";
   return temp;
 }
