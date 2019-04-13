@@ -214,6 +214,8 @@ function formatStatus(status, largePic = true, emoji = false) {
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'📹');
   //链接图标处理
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_web_default.png'><\/span>/g,'🔗');  
+  //地点图标处理
+  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_location_default.png'><\/span>/g,'📍');
   //购物车图标处理
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/01\/21\/20\/timeline_card_small_photo_default.png'><\/span>/g,'');
   //表情转文字
