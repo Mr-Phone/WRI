@@ -217,7 +217,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   //购物车图标处理
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/01\/21\/20\/timeline_card_small_photo_default.png'><\/span>/g,'');
   //表情转文字
-  temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,'$1');
+  temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,' $1 ');
 
 //    temp = temp.replace(/<span class='url-icon'><img.*?><\/span>/g, '');
   
