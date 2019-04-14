@@ -237,6 +237,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   }
   // 添加微博配图
   if (status.pics) {
+      temp += "<br>";
     status.pics.forEach(function (item) {
       temp += "<br>";
       temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="500">';
