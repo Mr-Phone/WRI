@@ -240,7 +240,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   // 添加微博配图
   if (status.pics) {
     status.pics.forEach(function (item) {
-      temp += "<br><br>";
+      temp += "<br>";
       temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="500">';
     });
   }
@@ -250,6 +250,6 @@ function formatStatus(status, largePic = true, emoji = false) {
   temp = temp.replace(/<span class="surl-text">(.*?)<\/span>/g,'$1')
   //格式处理
   //temp = temp.replace(/<span class="url-icon">(.*?)<\/span>/g,'$1')
-  temp += "<br><br>";
+  temp += "<br>";
   return temp;
 }
