@@ -33,7 +33,7 @@ exports.fetchRSS = function (uid, options) {
   }
   // TTL
   if (options.ttl === undefined) {
-    options.ttl = 15;
+    options.ttl = 1;
   }
   // 表情图标
   if (options.emoji === undefined) {
@@ -211,22 +211,20 @@ function formatStatus(status, largePic = true, emoji = false) {
   if (!temp) temp = "";
 
   //视频图标处理
-  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'  📹');
+//  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'  📹');
   //链接图标处理
-  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_web_default.png'><\/span>/g,'  🔗');  
+//  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_web_default.png'><\/span>/g,'  🔗');  
   //地点图标处理
-  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_location_default.png'><\/span>/g,'  📍');
+//  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_location_default.png'><\/span>/g,'  📍');
   //购物车图标处理
-  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/01\/21\/20\/timeline_card_small_photo_default.png'><\/span>/g,'  ');
+//  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/01\/21\/20\/timeline_card_small_photo_default.png'><\/span>/g,'  ');
   //表情转文字
-  temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,' $1 ');
+//  temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,' $1 ');
 
 //    temp = temp.replace(/<span class='url-icon'><img.*?><\/span>/g, '');
   
   // 处理外部链接
-  temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {
-    return decodeURIComponent(p1);
-  });
+//  temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {return decodeURIComponent(p1);});
 
   // 处理转发的微博
   if (status.retweeted_status) {
@@ -243,7 +241,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   if (status.pics) {
     status.pics.forEach(function (item) {
       temp += "<br><br>";
-      temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="550">';
+      temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="500">';
     });
   }
   //表情图像链接头补全
