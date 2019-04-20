@@ -219,7 +219,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   //购物车图标处理
   temp = temp.replace(/<a data-url=(.*?)><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/01\/21\/20\/timeline_card_small_photo_default.png'><\/span>/g,'<br><a data-url=$1>');
   //超话图标处理
-  temp = temp.replace(/<a data-url=(.*?)><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/n.sinaimg.cn\/photo\/5213b46e\/20180926\/timeline_card_small_super_default.png'><\/span>/g,'<br><a data-url=$1>💎');
+  temp = temp.replace(/<a href=(.*?)><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/n.sinaimg.cn\/photo\/5213b46e\/20180926\/timeline_card_small_super_default.png'><\/span>/g,'<br><a href=$1>💎');
   //表情转文字
   temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,' $1 ');
   
