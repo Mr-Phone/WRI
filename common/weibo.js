@@ -210,6 +210,18 @@ function formatStatus(status, largePic = true, emoji = false) {
   // 某些纯图片微博 status.text 的值为 null
   if (!temp) temp = "";
 
+  // 处理转发的微博
+  if (status.retweeted_status) {
+    temp += "<br><br>";
+    // 可能有转发的微博被删除的情况
+    if (status.retweeted_status.user) {
+      temp += '<div style="border-left: 3px solid gray; padding-left: 1em;">'
+            + '转发 <a href="https://weibo.com/' + status.retweeted_status.user.id + '" target="_blank">@' + status.retweeted_status.user.screen_name + '</a>: '
+            + formatStatus(status.retweeted_status, largePic, emoji)
+            + '</div>';
+    }
+  }
+  
   //视频图标处理
   temp = temp.replace(/<a data-url=(.*?)><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'<br><a data-url=$1>📹');  
   //链接图标处理
@@ -226,17 +238,6 @@ function formatStatus(status, largePic = true, emoji = false) {
   // 处理外部链接
 //  temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {return decodeURIComponent(p1);});
 
-  // 处理转发的微博
-  if (status.retweeted_status) {
-    temp += "<br><br>";
-    // 可能有转发的微博被删除的情况
-    if (status.retweeted_status.user) {
-      temp += '<div style="border-left: 3px solid gray; padding-left: 1em;">'
-            + '转发 <a href="https://weibo.com/' + status.retweeted_status.user.id + '" target="_blank">@' + status.retweeted_status.user.screen_name + '</a>: '
-            + formatStatus(status.retweeted_status, largePic, emoji)
-            + '</div>';
-    }
-  }
   // 添加微博配图
   if (status.pics) {
       temp += "<br>";
