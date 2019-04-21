@@ -223,7 +223,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   }
   
   //视频图标处理
-  temp = temp.replace(/<a data-url="(.*?)" data-hide="">><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'<br><a data-url="$1">📹');  
+  temp = temp.replace(/<a data-url="(.*?)" data-hide=""><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'<br><a data-url="$1">📹');  
   //链接图标处理
   temp = temp.replace(/<a data-url="(.*?)" data-hide=""><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_web_default.png'><\/span>/g, '<br><a data-url="$1">🔗');
   //地点图标处理
