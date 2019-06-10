@@ -222,6 +222,8 @@ function formatStatus(status, largePic = true, emoji = false) {
     }
   }
   
+  //标头补全
+  temp = temp.replace(/src='\/\//g,'src=\'https://');  
   //视频图标处理
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_video_default.png'><\/span>/g,'<br>📹');  
   //链接图标处理
@@ -237,6 +239,8 @@ function formatStatus(status, largePic = true, emoji = false) {
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='https:\/\/h5.sinaimg.cn\/upload\/2016\/07\/04\/165\/timeline_card_small_checkin_default.png'><\/span>/g,'<br>');  
   //表情转文字
   temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,' $1 ');
+  //图片评论处理
+  temp = temp.replace(/<a data-url="(.*?)" href="https:\/\/photo.weibo.com\/h5\/repost\/reppic_id\/(.*?)" data-hide=""><br>(.*?)<\/a>/g,'<br><a href="https://photo.weibo.com/h5/repost/reppic_id/$2">$3</a><br><img src="$2" width="500">');
   // 处理外部链接
 //  temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {return decodeURIComponent(p1);});
 
@@ -248,8 +252,6 @@ function formatStatus(status, largePic = true, emoji = false) {
       temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="500">';
     });
   }
-  //图片评论处理
-  temp = temp.replace(/<a data-url="(.*?)" href="(.*?)" data-hide=""><span class='url-icon'><img style='width: 1rem;height: 1rem' src='(.*?)'><\/span>查看图片<\/a>/g,'<br><a href="$2">查看图片</a><br><img src="$2" width="500">');
   //表情图像链接头补全
   temp = temp.replace(/src=\"\//g,'src="https:/');
   //格式处理
