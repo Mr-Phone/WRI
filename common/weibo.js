@@ -248,14 +248,14 @@ function formatStatus(status, largePic = true, emoji = false) {
       temp += '<img src="' + (largePic ? item.large.url : item.url) + '" width="500">';
     });
   }
+  //图片评论处理
+  temp = temp.replace(/<a data-url="(.*?)" href="(.*?)" data-hide=""><span class='url-icon'><img style='width: 1rem;height: 1rem' src='(.*?)'><\/span>查看图片<\/a>/g,'<br><a href="$2">查看图片</a><br><img src="$2" width="500">');
   //表情图像链接头补全
   temp = temp.replace(/src=\"\//g,'src="https:/');
   //格式处理
   temp = temp.replace(/<span class="surl-text">(.*?)<\/span>/g,'$1');
   //格式处理
   //temp = temp.replace(/<span class="url-icon">(.*?)<\/span>/g,'$1');
-  //图片评论处理
-  temp = temp.replace(/<a data-url="(.*?)" href="(.*?)" data-hide=""><span class='url-icon'><img style='width: 1rem;height: 1rem' src='(.*?)'><\/span>查看图片<\/a>/g,'<br><a href="$2">查看图片</a><br><img src="$2" width="500"><br>');
   temp += "<br>";
   return temp;
 }
