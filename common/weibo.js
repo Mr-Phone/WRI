@@ -240,7 +240,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   //表情转文字
   temp = temp.replace(/<span class="url-icon"><img alt=(.*?) src="(.*?)" style="width:1em; height:1em;" \/><\/span>/g,' $1 ');
   //图片评论处理
-  temp = temp.replace(/<a data-url="http:\/\/t.cn\/(.*?)" href="(.*?)" data-hide=""><br>[\u67e5][\u770b][\u56fe][\u7247]<\/a>/g,'<br><a href="$2">查看图片</a><br><img src="$2" width="500">');
+  temp = temp.replace(/<a data-url="http:\/\/t.cn\/(.*?)" href="(.*?)" data-hide=""><br>(.*?)<\/a><br><br><div style="border-left: 3px solid gray; padding-left: 1em;">/g,'<br><a href="$2">查看图片</a><br><img src="$2" width="500"><br><br><div style="border-left: 3px solid gray; padding-left: 1em;">');
   // 处理外部链接
 //  temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {return decodeURIComponent(p1);});
 
