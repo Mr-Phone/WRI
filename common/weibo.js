@@ -236,7 +236,7 @@ function formatStatus(status, largePic = true, emoji = false) {
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='http(s)?:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/link_icon_default.png'><\/span>/g,'<br>🛒');
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='http(s)?:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_taobao_default.png'><\/span>/g,'<br>🛒');
   //超话图标处理
-  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='http(s)?:\/\/n.sinaimg.cn\/photo\/5213b46e\/20180926\/timeline_card_small_super_default.png'><\/span>/g,'<br>💎');
+  temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='http(s)?:\/\/n.sinaimg.cn\/photo\/5213b46e\/(.*?)\/timeline_card_small_super_default.png'><\/span>/g,'<br>💎');
   //日历图标处理
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='http(s)?:\/\/h5.sinaimg.cn\/upload\/2016\/07\/04\/165\/timeline_card_small_checkin_default.png'><\/span>/g,'<br>');  
   //音乐图标处理
