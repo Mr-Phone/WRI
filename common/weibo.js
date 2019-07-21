@@ -249,6 +249,8 @@ function formatStatus(status, largePic = true, emoji = false) {
   temp = temp.replace(/<span class='url-icon'><img style='width: 1rem;height: 1rem' src='http(s)?:\/\/h5.sinaimg.cn\/upload\/2015\/09\/25\/3\/timeline_card_small_article_default.png'><\/span>/g, '<br>📄');
   //链接样式处理
   temp = temp.replace(/<a (.*?)">/g,'<a $1 style="color:#09f!important;text-decoration:none !important;">');
+  //##处理
+  temp = temp.replace(/#(.*?)#/g,'#$1# ');
   // 处理外部链接
 //  temp = temp.replace(/https:\/\/weibo\.cn\/sinaurl\/.*?&u=(http.*?\")/g, function (match, p1) {return decodeURIComponent(p1);});
 
